@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<definitions xmlns:tns="http://example.org/catalog" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Catalog" targetNamespace="http://example.org/catalog">
+    <message name="userAuthIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="userAuthOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="LogoutIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="LogoutOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+
+
+    <message name="getCompanyListIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getCompanyListOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getCompanyDetailIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getCompanyDetailOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="saveCompanyDetailIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="saveCompanyDetailOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+
+
+    <message name="getRealEstateListIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getRealEstateListOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+
+    <portType name="UserPortType">
+        <operation name="userAuth">
+            <input message="tns:userAuthIn"/>
+            <output message="tns:userAuthOut"/>
+        </operation>
+        <operation name="Logout">
+            <input message="tns:LogoutIn"/>
+            <output message="tns:LogoutOut"/>
+        </operation>
+    </portType>
+
+    <portType name="CompanyPortType">
+        <operation name="getCompanyList">
+            <input message="tns:getCompanyListIn"/>
+            <output message="tns:getCompanyListOut"/>
+        </operation>
+        <operation name="getCompanyDetail">
+            <input message="tns:getCompanyDetailIn"/>
+            <output message="tns:getCompanyDetailOut"/>
+        </operation>
+        <operation name="saveCompanyDetail">
+            <input message="tns:saveCompanyDetailIn"/>
+            <output message="tns:saveCompanyDetailOut"/>
+        </operation>
+    </portType>
+
+    <portType name="RealEstatePortType">
+        <operation name="getRealEstateList">
+            <input message="tns:getRealEstateListIn"/>
+            <output message="tns:getRealEstateListOut"/>
+        </operation>
+    </portType>
+
+    <binding name="UserBinding" type="tns:UserPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="userAuth">
+            <soap:operation soapAction="urn:localhost#userAuth"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="Logout">
+            <soap:operation soapAction="urn:localhost#Logout"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+
+
+
+    <binding name="CompanyBinding" type="tns:CompanyPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getCompanyList">
+            <soap:operation soapAction="urn:localhost#getCompanyList"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getCompanyDetail">
+            <soap:operation soapAction="urn:localhost#getCompanyDetail"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="saveCompanyDetail">
+            <soap:operation soapAction="urn:localhost#saveCompanyDetail"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+    <binding name="RealEstateBinding" type="tns:RealEstatePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getRealEstateList">
+            <soap:operation soapAction="urn:localhost#getRealEstateList"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="UserService">
+        <port name="UserPort" binding="UserBinding">
+            <soap:address location="http://localhost/app/backend/app/server"/>
+        </port>
+    </service>
+    <service name="CompanyService">
+        <port name="CompanyPort" binding="CompanyBinding">
+            <soap:address location="http://localhost/app/backend/app/server"/>
+        </port>
+    </service>
+    <service name="RealEstateService">
+        <port name="RealEstatePort" binding="RealEstateBinding">
+            <soap:address location="http://localhost/app/backend/app/server"/>
+        </port>
+    </service>
+</definitions>

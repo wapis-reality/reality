@@ -1,0 +1,66 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+    <xs:element name="dependents">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dependent" minOccurs='1' maxOccurs='unbounded'/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="dependent">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="StaffNo."/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Surname"/>
+                <xs:element ref="DependantSurname"/>
+                <xs:element ref="DependantFirstName"/>
+                <xs:element ref="DependantDateofBirth"/>
+                <xs:element ref="Relationship"/>
+                <xs:element ref="DependantGender"/>
+                <xs:element ref="DependantStudent"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StaffNo." type="xs:integer"/>
+    <xs:element name="FirstName"/>
+    <xs:element name="Surname"/>
+    <xs:element name="DependantSurname"/>
+    <xs:element name="DependantFirstName"/>
+    <xs:element name="DependantDateofBirth">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}[/]\d{2}[/]\d{4}"></xs:pattern>
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="Relationship">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Daughter"/>
+                <xs:enumeration value="Son"/>
+                <xs:enumeration value="Wife"/>
+                <xs:enumeration value="Husband"/>
+                <xs:enumeration value="Father"/>
+                <xs:enumeration value="Mother"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="DependantGender">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="M"/>
+                <xs:enumeration value="F"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="DependantStudent">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="TRUE"/>
+                <xs:enumeration value="FALSE"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+</xs:schema>

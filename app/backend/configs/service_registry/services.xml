@@ -1,0 +1,94 @@
+<services>
+    <service>
+        <name>userAuth</name>
+        <component>user</component>
+        <method>authUser</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>getPermissions</name>
+        <component>user</component>
+        <method>getPermissions</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>setPermission</name>
+        <component>user</component>
+        <method>setPermission</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>getUserList</name>
+        <component>user</component>
+        <method>getUserList</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>saveUser</name>
+        <component>user</component>
+        <method>saveUser</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>setNewPassword</name>
+        <component>user</component>
+        <method>setNewPassword</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+
+
+    <service>
+        <name>getCompanyList</name>
+        <component>company</component>
+        <method>getCompanyList</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>getCompanyDetail</name>
+        <component>company</component>
+        <method>getCompanyDetail</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>saveCompanyDetail</name>
+        <component>company</component>
+        <method>saveCompanyDetail</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+
+
+    <service>
+        <name>getRealEstateList</name>
+        <component>realestate</component>
+        <method>getRealEstateList</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>getRealEstateDetail</name>
+        <component>realestate</component>
+        <method>getRealEstateDetail</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+</services>

@@ -1,0 +1,128 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+    <xs:element name="employees">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="employee" minOccurs='1' maxOccurs='unbounded'/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="employee">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="StaffNumber"/>
+                <xs:element ref="Title"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Surname"/>
+                <xs:element ref="SystemStatus"/>
+                <xs:element ref="PreferredName"/>
+                <xs:element ref="MiddleName"/>
+                <xs:element ref="Address1"/>
+                <xs:element ref="Address2"/>
+                <xs:element ref="Address3"/>
+                <xs:element ref="Town"/>
+                <xs:element ref="County"/>
+                <xs:element ref="Postcode"/>
+                <xs:element ref="Gender"/>
+                <xs:element ref="CompanyStartDate"/>
+                <xs:element ref="DaysPerWeek"/>
+                <xs:element ref="HoursPerWeek"/>
+                <xs:element ref="Entitlement"/>
+                <xs:element ref="DateofBirth"/>
+                <xs:element ref="LeaversDate"/>
+                <xs:element ref="NINumber"/>
+                <xs:element ref="Salary"/>
+                <xs:element ref="PensionSalary"/>
+                <xs:element ref="TaxCode"/>
+                <xs:element ref="TaxBand"/>
+                <xs:element ref="JobTitle"/>
+                <xs:element ref="Department"/>
+                <xs:element ref="ContractType"/>
+                <xs:element ref="EmploymentStatus"/>
+                <xs:element ref="WorkEmail"/>
+                <xs:element ref="Manager"/>
+                <xs:element ref="HomePhone"/>
+                <xs:element ref="MobilePhone"/>
+                <xs:element ref="FlexEmployee"/>
+                <xs:element ref="FlexFundValue"/>
+                <xs:element ref="PensionScheme"/>
+                <xs:element ref="PensionEE"/>
+                <xs:element ref="PensionER"/>
+                <xs:element ref="PensionEEMonthlyAmount"/>
+                <xs:element ref="PensionERMonthlyAmount"/>
+                <xs:element ref="CoreEntitlementHoliday"/>
+                <xs:element ref="Pro-RatedEntitlementHoliday"/>
+                <xs:element ref="HolidayCarryOver"/>
+                <xs:element ref="PassedProbation"/>
+                <xs:element ref="SpecialBenefitExceptionsIdentifier"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="StaffNumber" type="xs:integer"/>
+    <xs:element name="Title"/>
+    <xs:element name="FirstName"/>
+    <xs:element name="Surname"/>
+    <xs:element name="SystemStatus"/>
+    <xs:element name="PreferredName"/>
+    <xs:element name="MiddleName"/>
+    <xs:element name="Address1"/>
+    <xs:element name="Address2"/>
+    <xs:element name="Address3"/>
+    <xs:element name="Town"/>
+    <xs:element name="County"/>
+    <xs:element name="Postcode"/>
+    <xs:element name="Gender">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="M"/>
+                <xs:enumeration value="F"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="CompanyStartDate">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}[/]\d{2}[/]\d{4}"></xs:pattern>
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="DaysPerWeek" type="xs:float"/>
+    <xs:element name="HoursPerWeek" type="xs:float"/>
+    <xs:element name="Entitlement"/>
+    <xs:element name="DateofBirth">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}[/]\d{2}[/]\d{4}"></xs:pattern>
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="LeaversDate"/>
+    <xs:element name="NINumber"/>
+    <xs:element name="Salary" type="xs:float"/>
+    <xs:element name="PensionSalary" type="xs:float"/>
+    <xs:element name="TaxCode"/>
+    <xs:element name="TaxBand"/>
+    <xs:element name="JobTitle"/>
+    <xs:element name="Department"/>
+    <xs:element name="ContractType"/>
+    <xs:element name="EmploymentStatus"/>
+    <xs:element name="WorkEmail"/>
+    <xs:element name="Manager"/>
+    <xs:element name="HomePhone"/>
+    <xs:element name="MobilePhone"/>
+    <xs:element name="FlexEmployee"/>
+    <xs:element name="FlexFundValue"/>
+    <xs:element name="PensionScheme"/>
+    <xs:element name="PensionEE"/>
+    <xs:element name="PensionER"/>
+    <xs:element name="PensionEEMonthlyAmount" type="xs:float"/>
+    <xs:element name="PensionERMonthlyAmount" type="xs:float"/>
+    <xs:element name="CoreEntitlementHoliday"/>
+    <xs:element name="Pro-RatedEntitlementHoliday"/>
+    <xs:element name="HolidayCarryOver"/>
+    <xs:element name="PassedProbation"/>
+    <xs:element name="SpecialBenefitExceptionsIdentifier"/>
+
+</xs:schema>

@@ -1,0 +1,9 @@
+diff a/app/modules/scheme_manager/views/dashboard.ctp b/app/modules/scheme_manager/views/dashboard.ctp	(rejected hunks)
+@@ -372,7 +372,6 @@
+                                         title="Module Customization"
+                                         >
+                                         {{getModuleName(m.module)}}
+-                                        
+ 
+                                         <span class="progress" ng-show="s.activated == 0">
+                                             <span ng-style="{'width': (m.total_questions == 0) ? '100%' : (((m.answered_questions)*100)/m.total_questions)+'%'}"></span>

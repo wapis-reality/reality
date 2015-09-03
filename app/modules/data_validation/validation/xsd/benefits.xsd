@@ -1,0 +1,175 @@
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+    <xs:element name="benefits">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="benefit" minOccurs='1' maxOccurs='unbounded'/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="benefit">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="StaffNumber"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Surname"/>
+                <xs:element ref="Provider"/>
+                <xs:element ref="BenefitName"/>
+                <xs:element ref="OptionSelected"/>
+                <xs:element ref="CoverageSelected"/>
+                <xs:element ref="EmployeeCostannual"/>
+                <xs:element ref="EmployerCostannual"/>
+                <xs:element ref="StartDate"/>
+                <xs:element ref="EndDate"/>
+                <xs:element ref="StartofCover"/>
+                <xs:element ref="Dependant1DateofBirth"/>
+                <xs:element ref="Dependant1FirstName"/>
+                <xs:element ref="Dependant1Gender"/>
+                <xs:element ref="Dependant1Relationship"/>
+                <xs:element ref="Dependant1Surname"/>
+                <xs:element ref="Dependant1Student"/>
+                <xs:element ref="Dependant2DateofBirth"/>
+                <xs:element ref="Dependant2FirstName"/>
+                <xs:element ref="Dependant2Gender"/>
+                <xs:element ref="Dependant2Relationship"/>
+                <xs:element ref="Dependant2Surname"/>
+                <xs:element ref="Dependant2Student"/>
+                <xs:element ref="Dependant3DateofBirth"/>
+                <xs:element ref="Dependant3FirstName"/>
+                <xs:element ref="Dependant3Gender"/>
+                <xs:element ref="Dependant3Relationship"/>
+                <xs:element ref="Dependant3Surname"/>
+                <xs:element ref="Dependant3Student"/>
+                <xs:element ref="Dependant4DateofBirth"/>
+                <xs:element ref="Dependant4FirstName"/>
+                <xs:element ref="Dependant4Gender"/>
+                <xs:element ref="Dependant4Relationship"/>
+                <xs:element ref="Dependant4Surname"/>
+                <xs:element ref="Dependant4Student"/>
+                <xs:element ref="Dependant5DateofBirth"/>
+                <xs:element ref="Dependant5FirstName"/>
+                <xs:element ref="Dependant5Gender"/>
+                <xs:element ref="Dependant5Relationship"/>
+                <xs:element ref="Dependant5Surname"/>
+                <xs:element ref="Dependant5Student"/>
+                <xs:element ref="Dependant6DateofBirth"/>
+                <xs:element ref="Dependant6FirstName"/>
+                <xs:element ref="Dependant6Gender"/>
+                <xs:element ref="Dependant6Relationship"/>
+                <xs:element ref="Dependant6Surname"/>
+                <xs:element ref="Dependant6Student"/>
+                <xs:element ref="Dependant7DateofBirth"/>
+                <xs:element ref="Dependant7FirstName"/>
+                <xs:element ref="Dependant7Gender"/>
+                <xs:element ref="Dependant7Relationship"/>
+                <xs:element ref="Dependant7Surname"/>
+                <xs:element ref="Dependant7Student"/>
+                <xs:element ref="Dependant8DateofBirth"/>
+                <xs:element ref="Dependant8FirstName"/>
+                <xs:element ref="Dependant8Gender"/>
+                <xs:element ref="Dependant8Relationship"/>
+                <xs:element ref="Dependant8Surname"/>
+                <xs:element ref="Dependant8Student"/>
+                <xs:element ref="Dependant9DateofBirth"/>
+                <xs:element ref="Dependant9FirstName"/>
+                <xs:element ref="Dependant9Gender"/>
+                <xs:element ref="Dependant9Relationship"/>
+                <xs:element ref="Dependant9Surname"/>
+                <xs:element ref="Dependant9Student"/>
+                <xs:element ref="Dependant10DateofBirth"/>
+                <xs:element ref="Dependant10FirstName"/>
+                <xs:element ref="Dependant10Gender"/>
+                <xs:element ref="Dependant10Relationship"/>
+                <xs:element ref="Dependant10Surname"/>
+                <xs:element ref="Dependant10Student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="StaffNumber" type="xs:integer"/>
+    <xs:element name="FirstName"/>
+    <xs:element name="Surname"/>
+    <xs:element name="Provider"/>
+    <xs:element name="BenefitName"/>
+    <xs:element name="OptionSelected"/>
+    <xs:element name="CoverageSelected"/>
+    <xs:element name="EmployeeCostannual" type="xs:float"/>
+    <xs:element name="EmployerCostannual" type="xs:float"/>
+    <xs:element name="StartDate">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}[/]\d{2}[/]\d{4}"></xs:pattern>
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="EndDate">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}[/]\d{2}[/]\d{4}"></xs:pattern>
+                <xs:length value="10"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="StartofCover"/>
+    <xs:element name="Dependant1DateofBirth"/>
+    <xs:element name="Dependant1FirstName"/>
+    <xs:element name="Dependant1Gender"/>
+    <xs:element name="Dependant1Relationship"/>
+    <xs:element name="Dependant1Surname"/>
+    <xs:element name="Dependant1Student"/>
+    <xs:element name="Dependant2DateofBirth"/>
+    <xs:element name="Dependant2FirstName"/>
+    <xs:element name="Dependant2Gender"/>
+    <xs:element name="Dependant2Relationship"/>
+    <xs:element name="Dependant2Surname"/>
+    <xs:element name="Dependant2Student"/>
+    <xs:element name="Dependant3DateofBirth"/>
+    <xs:element name="Dependant3FirstName"/>
+    <xs:element name="Dependant3Gender"/>
+    <xs:element name="Dependant3Relationship"/>
+    <xs:element name="Dependant3Surname"/>
+    <xs:element name="Dependant3Student"/>
+    <xs:element name="Dependant4DateofBirth"/>
+    <xs:element name="Dependant4FirstName"/>
+    <xs:element name="Dependant4Gender"/>
+    <xs:element name="Dependant4Relationship"/>
+    <xs:element name="Dependant4Surname"/>
+    <xs:element name="Dependant4Student"/>
+    <xs:element name="Dependant5DateofBirth"/>
+    <xs:element name="Dependant5FirstName"/>
+    <xs:element name="Dependant5Gender"/>
+    <xs:element name="Dependant5Relationship"/>
+    <xs:element name="Dependant5Surname"/>
+    <xs:element name="Dependant5Student"/>
+    <xs:element name="Dependant6DateofBirth"/>
+    <xs:element name="Dependant6FirstName"/>
+    <xs:element name="Dependant6Gender"/>
+    <xs:element name="Dependant6Relationship"/>
+    <xs:element name="Dependant6Surname"/>
+    <xs:element name="Dependant6Student"/>
+    <xs:element name="Dependant7DateofBirth"/>
+    <xs:element name="Dependant7FirstName"/>
+    <xs:element name="Dependant7Gender"/>
+    <xs:element name="Dependant7Relationship"/>
+    <xs:element name="Dependant7Surname"/>
+    <xs:element name="Dependant7Student"/>
+    <xs:element name="Dependant8DateofBirth"/>
+    <xs:element name="Dependant8FirstName"/>
+    <xs:element name="Dependant8Gender"/>
+    <xs:element name="Dependant8Relationship"/>
+    <xs:element name="Dependant8Surname"/>
+    <xs:element name="Dependant8Student"/>
+    <xs:element name="Dependant9DateofBirth"/>
+    <xs:element name="Dependant9FirstName"/>
+    <xs:element name="Dependant9Gender"/>
+    <xs:element name="Dependant9Relationship"/>
+    <xs:element name="Dependant9Surname"/>
+    <xs:element name="Dependant9Student"/>
+    <xs:element name="Dependant10DateofBirth"/>
+    <xs:element name="Dependant10FirstName"/>
+    <xs:element name="Dependant10Gender"/>
+    <xs:element name="Dependant10Relationship"/>
+    <xs:element name="Dependant10Surname"/>
+    <xs:element name="Dependant10Student"/>
+</xs:schema>
