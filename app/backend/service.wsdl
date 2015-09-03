@@ -40,6 +40,25 @@
     <message name="getRealEstateListOut">
         <part name="parameters" element="tns:GroupCompetitorsResponse"/>
     </message>
+    <message name="getRealEstateDetailIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getRealEstateDetailOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="saveRealEstateDetailIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="saveRealEstateDetailOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getRealEstateSettingIn">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+    <message name="getRealEstateSettingOut">
+        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
+    </message>
+
 
     <portType name="UserPortType">
         <operation name="userAuth">
@@ -71,6 +90,18 @@
         <operation name="getRealEstateList">
             <input message="tns:getRealEstateListIn"/>
             <output message="tns:getRealEstateListOut"/>
+        </operation>
+        <operation name="getRealEstateDetail">
+            <input message="tns:getRealEstateDetailIn"/>
+            <output message="tns:getRealEstateDetailOut"/>
+        </operation>
+        <operation name="saveRealEstateDetail">
+            <input message="tns:saveRealEstateDetailIn"/>
+            <output message="tns:saveRealEstateDetailOut"/>
+        </operation>
+        <operation name="getRealEstateSetting">
+            <input message="tns:getRealEstateSettingIn"/>
+            <output message="tns:getRealEstateSettingOut"/>
         </operation>
     </portType>
 
@@ -135,6 +166,33 @@
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="getRealEstateList">
             <soap:operation soapAction="urn:localhost#getRealEstateList"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getRealEstateDetail">
+            <soap:operation soapAction="urn:localhost#getRealEstateDetail"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="saveRealEstateDetail">
+            <soap:operation soapAction="urn:localhost#saveRealEstateDetail"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getRealEstateSetting">
+            <soap:operation soapAction="urn:localhost#getRealEstateSetting"/>
             <input>
                 <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </input>

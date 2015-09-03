@@ -43,7 +43,7 @@ define(['js/angular/app/app'], function (app) {
                             first_name: '',
                             last_name: '',
                             phone: '',
-                            email: '',
+                            email: ''
                         });
                     }
 

@@ -91,4 +91,20 @@
             <param required="true" type="int">user_id</param>
         </parameters>
     </service>
+    <service>
+        <name>saveRealEstateDetail</name>
+        <component>realestate</component>
+        <method>saveRealEstateDetail</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
+    <service>
+        <name>getRealEstateSetting</name>
+        <component>realestate</component>
+        <method>getRealEstateSetting</method>
+        <parameters>
+            <param required="true" type="int">user_id</param>
+        </parameters>
+    </service>
 </services>

@@ -8,6 +8,15 @@ class RealestateModule extends ModuleService
     }
 
 
+    function getRealEstateSetting($params = array())
+    {
+        $lists = array();
+
+        $this->loadModelBroker();
+        $lists['Broker'] = $this->BrokerModel->find('list', array('fields'=>array('id','last_name')));
+
+        return $lists;
+    }
     function getRealEstateList($params = array())
     {
 
@@ -25,15 +34,16 @@ class RealestateModule extends ModuleService
 
     function getRealEstateDetail($params = array())
     {
+
         $id = $params[0];
-        $this->RealEstateModel();
+        $this->loadModelRealEstate();
 
         $detail = $this->RealEstateModel->find('first', array(
             'conditions' => array(
                 'id' => $id
             )
         ));
-        if (count($detail) == 0) {
+        if (!$detail) {
             return;
         } else {
 
@@ -41,52 +51,23 @@ class RealestateModule extends ModuleService
             return $detail;
         }
     }
-/*
-    function saveCompanyDetail($params = array())
+
+    function saveRealEstateDetail($params = array())
     {
-        if (isset($params["form_data"]["CompanyModel"])) {
-            $this->loadModelCompany();
-            $this->loadModelCompanyContact();
-            if ($this->CompanyModel->save($params["form_data"]["CompanyModel"])) {
-                $company_id = $this->CompanyModel->id;
 
+        if (isset($params["form_data"]["RealEstateModel"])) {
+            $this->loadModelRealEstate();
+            $toSave = $params["form_data"]["RealEstateModel"];
 
-
-                if (isset($params["form_data"]["CompanyContactModel"])) {
-                    $this->CompanyContactModel->deleteAll(array("company_id" => $company_id));
-                }
-
-                $saved = array();
-
-                foreach ($params["form_data"]["CompanyContactModel"] as $contact) {
-                    $contact['company_id'] = $company_id;
-                    if (!$this->CompanyContactModel->save($contact)) {
-                        return $this->CompanyContactModel->last_query;
-                    }
-                    $this->CompanyContactModel->id = null;
-                    $this->CompanyContactModel->data = null;
-
-                    $saved[] = $contact;
-                }
-
-                return $saved;
-
-//                //Add files into database
-//                $this->RequestFilesModel->deleteAll(array("request_id" => $request_id));
-//                $files = $params["form_data"]["RequestsModel"]["files"];
-//                if($files){
-//                    foreach($files as $file){
-//                        $data = array("request_id" => $request_id, "filename" => $file);
-//                        $this->RequestFilesModel->save($data);
-//                        //upload file from other server
-//                        //copy("http://rewardr_sip:8888/app/modules/request/php/files/".$file,"modules/request/files/".$file);
-//                    }
-//                }
-                return $company_id;
+            if ($this->RealEstateModel->save($toSave)) {
+                $toSave['id'] = $this->RealEstateModel->id;
+                return $toSave;
+            }else{
+                return false;
             }
         }
         return false;
     }
-*/
+
 
 }
