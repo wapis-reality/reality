@@ -5,15 +5,18 @@ define(['js/angular/app/app'], function (app) {
     var injectParams = ['$scope', '$rootScope', '$http', '$sce', '$modal', '$location', '$filter', '$window', '$timeout', 'authService', 'dataService', 'modalService'];
     var RealEstateController = function ($scope, $rootScope, $http, $sce, $modal, $location, $filter, $window, $timeout, authService, dataService, modalService) {
 
-        $http.get("system/angular_request/getRealEstateSetting").success(function (res) {
-            console.log(res.data);
-            $scope.lists = res.data;
-        });
+        //values for file drag and drop functionality
+        $scope.deleteFile = function (index) {
+            $scope.files.splice(index, 1);
+        };
+
         /**
          * load index data
          */
         $http.get("system/angular_request/getRealEstateList").success(function (res) {
-            $scope.requests = res.data;
+            $scope.requests = res.data.items;
+            $scope.lists = res.data.lists;
+            $scope.files = [];
 
             $scope.editWindow_real_estate = function (id, index) {
                 $scope.files = [];
@@ -66,4 +69,45 @@ define(['js/angular/app/app'], function (app) {
     RealEstateController.$inject = injectParams;
     app.controller('RealEstateController', RealEstateController);
 
+    app.directive("fileRead", function ($http) {
+        return {
+            scope: false,
+            link: function (scope, element, attributes) {
+                element.bind("change", function (changeEvent) {
+                    //send request here
+                    $http({
+                        method: 'POST',
+                        url: '/classes/upload.php',
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        },
+                        data: {
+                            upload: event.target.files
+                        },
+                        transformRequest: function (data, headersGetter) {
+                            var formData = new FormData();
+                            angular.forEach(data, function (value, key) {
+                                angular.forEach(value, function (value1, key1) {
+                                    formData.append(key1, value1);
+                                });
+                            });
+                            var headers = headersGetter();
+                            delete headers['Content-Type'];
+                            return formData;
+                        }
+                    })
+                    .success(function (data) {
+                        if(data){
+                            for(var j = 0; j < data.length; j++){
+                                scope.edit.items.push(data[j]);
+                            }
+                        }
+                    })
+                    .error(function (data) {
+                        console.log("error");
+                    });
+                });
+            }
+        }
+    });
 });

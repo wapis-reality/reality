@@ -74,6 +74,8 @@
     <div class="modal-body">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
             <li ng-class="{active:panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Zakladni</a></li>
+            <li ng-class="{active:panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Parametry</a></li>
+            <li ng-class="{active:panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Soubory</a></li>
         </ul>
 
         <div ng-show="panel.isSelected(1)">
@@ -93,13 +95,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Typ</label>
-                            <input type="text" ng-model="edit.RealEstateModel.advert_type" class="form-control"/>
+                            <select type="text" ng-model="edit.RealEstateModel.advert_type" class="form-control" ng-options="id as name for ( id, name) in lists.Types"></select>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Funkce</label>
-                            <input type="text" ng-model="edit.RealEstateModel.advert_function" class="form-control"/>
+                            <select type="text" ng-model="edit.RealEstateModel.advert_function" class="form-control" ng-options="id as name for ( id, name) in lists.Functions"></select>
                         </div>
                     </div>
                 </div>
@@ -108,12 +110,22 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Podtyp</label>
-                            <input type="text" ng-model="edit.RealEstateModel.advert_subtype" class="form-control"/>
+                            <select type="text" ng-model="edit.RealEstateModel.advert_subtype" class="form-control" ng-options="id as name for ( id, name) in lists.Subtypes"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Majitel</label>
+                            <select type="text" ng-model="edit.RealEstateModel.client_id" class="form-control" ng-options="id as client for ( id, client) in lists.Clients"></select>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-
+                            <label>Makléř</label>
+                            <select type="text" ng-model="edit.RealEstateModel.broker_id" class="form-control" ng-options="id as broker for ( id, broker) in lists.Brokers"></select>
                         </div>
                     </div>
                 </div>
@@ -128,7 +140,32 @@
                 </div>
             </fieldset>
         </div>
+        <div ng-show="panel.isSelected(2)">
+        </div>
+        <div ng-show="panel.isSelected(3)">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <h6>Přetáhněte soubor zde</h6>
 
+                        <div class="flex_uploader">
+                            <div id="f_uploader">
+                                <input type="file" file-read="uploadme.src" data-ng-click="hideWizard($event)" name="file" multiple>
+                            </div>
+
+                            <table cellspacing="50" cellpadding="50">
+                                <tr ng-repeat="t in edit.items">
+                                    <td><a target="_blank" href="uploaded/{{t}}" download> {{$index+1}}. {{t}}</a></td>
+                                    <td width="100"></td>
+                                    <td><a href="javascript:;" ng-click="deleteFile($index)"> <i class="fa fa-trash-o"></i></a></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr>
         <div class="row m-t-20">
             <div class="col-sm-6">

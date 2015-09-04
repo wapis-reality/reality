@@ -8,28 +8,38 @@ class RealestateModule extends ModuleService
     }
 
 
-    function getRealEstateSetting($params = array())
-    {
-        $lists = array();
 
-        $this->loadModelBroker();
-        $lists['Broker'] = $this->BrokerModel->find('list', array('fields'=>array('id','last_name')));
-
-        return $lists;
-    }
     function getRealEstateList($params = array())
     {
+        $data = array();
 
         $this->loadModelRealEstate();
-        $data = $this->RealEstateModel->find('all');
-       // $str = debug_pr($data);
-       //$this->RealEstateModel->last_sql
+        $this->RealEstateModel->bindModel(array(
+            'Client'=>array(
+                'type'=>'belongsTo'
+            ),
+            'Broker'=>array(
+                'type'=>'belongsTo'
+            )
+        ));
+        $data['items'] = $this->RealEstateModel->find('all');
 
-        if (count($data) == 0) {
+        $this->loadModelBroker();
+        $data['lists']['Brokers'] = $this->BrokerModel->find('list', array('fields'=>array('BrokerModel.id','BrokerModel.last_name')));
+
+        $this->loadModelClient();
+        $data['lists']['Clients'] = $this->ClientModel->find('list', array('fields'=>array('ClientModel.id','ClientModel.last_name')));
+
+        $data['lists']['Types'] = array(1=>'Dum',2=>'Byt',3=>'Pozemek');
+        $data['lists']['Subtypes'] = array(1=>'Chata',2=>'Rodinny',3=>'Činžovní',4=>'Na klíč', 5=>'Dřevostavba');
+        $data['lists']['Functions'] = array(1=>'Prodej',2=>'Pronajem');
+
+        return $data;
+        /*if (count($data) == 0) {
             return ;
         } else {
             return $data;
-        }
+        }*/
     }
 
     function getRealEstateDetail($params = array())

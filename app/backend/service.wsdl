@@ -52,12 +52,6 @@
     <message name="saveRealEstateDetailOut">
         <part name="parameters" element="tns:GroupCompetitorsResponse"/>
     </message>
-    <message name="getRealEstateSettingIn">
-        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
-    </message>
-    <message name="getRealEstateSettingOut">
-        <part name="parameters" element="tns:GroupCompetitorsResponse"/>
-    </message>
 
 
     <portType name="UserPortType">
@@ -98,10 +92,6 @@
         <operation name="saveRealEstateDetail">
             <input message="tns:saveRealEstateDetailIn"/>
             <output message="tns:saveRealEstateDetailOut"/>
-        </operation>
-        <operation name="getRealEstateSetting">
-            <input message="tns:getRealEstateSettingIn"/>
-            <output message="tns:getRealEstateSettingOut"/>
         </operation>
     </portType>
 
@@ -184,15 +174,6 @@
         </operation>
         <operation name="saveRealEstateDetail">
             <soap:operation soapAction="urn:localhost#saveRealEstateDetail"/>
-            <input>
-                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-            </input>
-            <output>
-                <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
-            </output>
-        </operation>
-        <operation name="getRealEstateSetting">
-            <soap:operation soapAction="urn:localhost#getRealEstateSetting"/>
             <input>
                 <soap:body use="encoded" namespace="urn:localhost" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </input>

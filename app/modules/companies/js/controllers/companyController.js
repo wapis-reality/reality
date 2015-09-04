@@ -33,7 +33,6 @@ define(['js/angular/app/app'], function (app) {
                     };
 
 
-                    console.log($scope.edit);
                     if (!$scope.edit.CompanyContactModel) {
                         $scope.edit.CompanyContactModel = [];
                     }

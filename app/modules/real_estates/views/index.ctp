@@ -20,15 +20,19 @@
                     <table aria-describedby="tableWithExportOptions_info" role="grid" class="table table-striped dataTable no-footer" id="tableWithExportOptions">
                         <thead>
                         <tr role="row">
-                            <th class="col-sm-5">Id</th>
-                            <th class="col-sm-5">Nazev</th>
-                            <th class="col-sm-2"></th>
+                            <th class="col-sm-2">Id</th>
+                            <th class="col-sm-3">Nazev</th>
+                            <th class="col-sm-3">Vlastník</th>
+                            <th class="col-sm-3">Makléř</th>
+                            <th class="col-sm-1"></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr data-ng-repeat="request in requests">
                             <td>{{request.RealEstateModel.id}}</td>
                             <td>{{request.RealEstateModel.name}}</td>
+                            <td>{{request.Client.first_name}} {{request.Client.last_name}}</td>
+                            <td>{{request.Broker.first_name}} {{request.Broker.last_name}}</td>
                             <td>
                                 <edit-button data-domwin-icon="" title="Edit"  class="text-black" data-placement="top" ng-click="editAuto(request.RealEstateModel.id,'real_estate',$index)"><i class="fa fa-edit"></i></edit-button>
                             </td>
